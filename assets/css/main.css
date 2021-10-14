@@ -2844,7 +2844,7 @@ input, select, textarea {
 	.footer-col h4::before{
 		content: '';
 		position: absolute;
-		left:0;
+		
 		bottom: -10px;
 		background-color: #961111;
 		height: 2px;
