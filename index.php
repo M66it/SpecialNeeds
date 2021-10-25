@@ -1,3 +1,4 @@
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -22,6 +23,10 @@
 						<!-- القائمة -->
 
 
+<<<<<<< HEAD:index.php
+<?php require_once('Nav.php'); ?>					
+
+=======
 					
 							<nav id="nav">
 								<ul>
@@ -51,6 +56,7 @@
 										</ul>
 								</ul>
 							</nav>
+>>>>>>> 6666eea3674be3d0749e529932fe484da7917286:index.html
 
 					</header>
 				</div>

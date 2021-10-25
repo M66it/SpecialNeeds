@@ -1,7 +1,8 @@
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Special Needs Supplies - add itme</title>
+		<title>Special Needs Supplies - SignIn</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -9,83 +10,81 @@
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
 
-			<!-- الجواجهة -->
+			<!-- Header -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 
-						<!-- اللوقو -->
+						<!-- Logo -->
 							<div id="logo">
 								<img src="images/SNO.png" style="width:20%">
 								<span style="font-size:2vw"><b>Special Needs</b> Supplies</span>
 							</div>
 							<hr style="color: black">
-						<!-- القائمة -->
-							<nav id="nav">
-								<ul>
-									<li class="current"><a href="index.html">الصفحة الئيسية</a></li>
-									<li>
-										<a href="#">الحساب</a>
-										<ul>
-											<li><a href="#">معلومات الحساب</a></li>
-											<li><a href="#">الطلبات</a></li>
-											<li>
-												<a href="#">التبرعات</a>
-												<ul>
-													<li><a href="#">طلب تبرع بالمستلزمات</a></li>
-													<li><a href="#">طلب احتياج مستلزمات</a></li>
-													<li><a href="#">قائمة الطلبات</a></li>
-												</ul>
-											</li>
-											<li><a href="#">تسجيل الخروج</a></li>
-										</ul>
-									</li>
-									<li><a href="left-sidebar.html">المستلزمات الجديدة</a></li>
-									<li><a href="right-sidebar.html">المستلزمات المستعملة</a></li>
-									<li><a href="no-sidebar.html">التواصل</a></li>
-								</ul>
-							</nav>
+						<!-- Nav -->
+<?php require_once('Nav.php'); ?>
 
 					</header>
 				</div>
 
-			<!-- القالب -->
+			<!-- Items -->
 				<center><div id="features-wrapper">
 					<div class="container">
-						<div class="row2">
-							<div class="col-4 col-10-medium">
+						<div class="row">
+							<div class="col-4 col-12-medium">
 
-								<!-- نموذج انشاء الحساب -->
-									<section class="box">
-										<form action="index.html" method="post">
-										<label for="name">اسم المنتج</label>
-										<input type="text" id="name" required>
+								<!-- قالب -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+									</section>
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+									</section>
+							</div>
+							<div class="col-12 col-10-larg">
+
+								<!-- Box -->
+										<form dir="rtl" action="index.html" method="post">
+										<section class="box feature">
+										
+										<h4>الوصف</h4>
+										<h2>السعر</h2>
+										<label for="count">الكمية</label>
+										<input id="count" max="10" type="number" value="1">
 										<br>
-										<label for="name">وصف المنتج</label>
-										<input type="text" id="name" required>
-										<br>
-										<label for="name">السعر</label>
-										<input type="text" id="name" required>
-										<br>
-										<label for="file">اضافة صورة</label>
-										<input type="file" name="file" id="file">
-										<br>
-										<label class="container2">قرأت ووافقت على الشروط
-										<input type="checkbox" required>
-										<span class="checkmark"></span>
-										</label>
+										<label for="size">المقاس</label>
+										<select class=" select-my" id="size">
+											<option>المقاسات</option>
+											<option>XL</option>
+											<option>XXL</option>
+											<option>Small</option>
+											<option>Large</option>
+										</select>
 										<div class="inner"><center>
 											<header>
 
-												<button type="submet">اضافة المنتج</button>
+												<button type="submet">اضافة الى السلة</button>
 											</header>
+										</form>
 										</center></div>
-									</form></section>
+									</section>
 							</div>
 						</div>
 					</div>
 				</div><center>
 
-			<!-- الجزء السفلي -->
+			<!-- Footer -->
 			<footer class="footer">
 				<div class="container">
 					<div class="row">
@@ -133,7 +132,7 @@
 
 			</div>
 
-		<!-- سكربتات -->
+		<!-- Scripts -->
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -141,6 +140,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 	</body>
+
 </html>

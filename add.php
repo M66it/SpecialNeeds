@@ -1,7 +1,8 @@
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Special Needs Supplies - SignUp</title>
+		<title>Special Needs Supplies - add itme</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,39 +16,12 @@
 
 						<!-- اللوقو -->
 							<div id="logo">
-								<img src="images/SNO.png" style="width:15%">
+								<img src="images/SNO.png" style="width:20%">
 								<span style="font-size:2vw"><b>Special Needs</b> Supplies</span>
 							</div>
 							<hr style="color: black">
 						<!-- القائمة -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">الصفحة الرئيسية</a></li>
-								
-								</li>
-								<li><a href="no-sidebar.html">التواصل</a></li>
-								<li><a href="right-sidebar.html">المستلزمات المستعملة</a></li>
-								<li><a href="left-sidebar.html">المستلزمات الجديدة</a></li>
-								
-
-
-								<li>
-									<a href="#">الحساب</a>
-									<ul>
-										<li><a href="#">معلومات الحساب</a></li>
-										<li><a href="#">الطلبات</a></li>
-										<li>
-											<a href="#">التبرعات</a>
-											<ul>
-												<li><a href="#">طلب تبرع بالمستلزمات</a></li>
-												<li><a href="#">طلب احتياج مستلزمات</a></li>
-												<li><a href="#">قائمة الطلبات</a></li>
-											</ul>
-										</li>
-										<li><a href="#">تسجيل الخروج</a></li>
-									</ul>
-							</ul>
-						</nav>
+<?php require_once('Nav.php'); ?>
 
 					</header>
 				</div>
@@ -61,14 +35,18 @@
 								<!-- نموذج انشاء الحساب -->
 									<section class="box">
 										<form action="index.html" method="post">
-										<label for="name">الاسم</label>
-										<input dir="rtl" type="text"  placeholder="الاسم" id="name" required>
+										<label for="name">اسم المنتج</label>
+										<input type="text" id="name" required>
 										<br>
-										<label for="mail">الايميل</label>
-										<input dir="rtl" type="email"  placeholder="الايميل" id="mail" required>
+										<label for="name">وصف المنتج</label>
+										<input type="text" id="name" required>
 										<br>
-										<label for="pass">كلمةالمرور</label>
-										<input dir="rtl" type="password"  placeholder="كلمةالمرور" id="pass" required>
+										<label for="name">السعر</label>
+										<input type="text" id="name" required>
+										<br>
+										<label for="file">اضافة صورة</label>
+										<input type="file" name="file" id="file">
+										<br>
 										<label class="container2">قرأت ووافقت على الشروط
 										<input type="checkbox" required>
 										<span class="checkmark"></span>
@@ -76,7 +54,7 @@
 										<div class="inner"><center>
 											<header>
 
-												<button type="submet">انشاء الحساب</button>
+												<button type="submet">اضافة المنتج</button>
 											</header>
 										</center></div>
 									</form></section>
@@ -126,8 +104,6 @@
 					<div  class="footer66">
 						<p> designed by <span>ali-Talal-Mohamed-yousef 2021</span></p>
 					</div>
-				</div>
-							
 							</div>
 						</div>
 					</footer>

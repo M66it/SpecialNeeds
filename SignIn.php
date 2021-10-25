@@ -1,3 +1,4 @@
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -21,6 +22,9 @@
 							</div>
 							<hr style="color: black">
 						<!-- Nav -->
+<<<<<<< HEAD:SignIn.php
+<?php require_once('Nav.php'); ?>
+=======
 						<nav id="nav">
 							<ul>
 								<li class="current"><a href="index.html">الصفحة الرئيسية</a></li>
@@ -49,6 +53,7 @@
 									</ul>
 							</ul>
 						</nav>
+>>>>>>> 6666eea3674be3d0749e529932fe484da7917286:SignIn.html
 
 					</header>
 				</div>
@@ -61,23 +66,34 @@
 
 								<!-- Box -->
 									<section class="box">
+<<<<<<< HEAD:SignIn.php
+										<form action="" method="post">
+										<label for="mail">الايميل</label>
+										<input type="email" name="email" required>
+										<br>
+										<label for="pass">الرقم السري</label>
+										<input type="password" name="pass_1" required>
+=======
 										<form action="index.html" method="post">
 										<label for="mail"></label>
 										<input dir="rtl" type="email" placeholder="الايميل" id="mail" required>
 										<br>
 										<label for="pass">كلمة المرور</label>
 										<input dir="rtl" type="password"  placeholder="كلمة المرور" id="pass" required>
+>>>>>>> 6666eea3674be3d0749e529932fe484da7917286:SignIn.html
 										<label class="container2">تذكر الايميل
-										<input type="checkbox" required>
+										<input type="checkbox" name="remember">
 										<span class="checkmark"></span>
 										</label>
 										<div class="inner"><center>
 											<header>
-
-												<button type="submet">تسجيل الدخول</button>
+												<button type="submet" name="signin">تسجيل الدخول</button>
+												<br><br>
+												</form>
+												<a href="SignUp.php" class="button">انشاء حساب</a>
 											</header>
 										</center></div>
-									</form></section>
+									</section>
 							</div>
 						</div>
 					</div>
