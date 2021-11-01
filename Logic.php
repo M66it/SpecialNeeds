@@ -46,45 +46,79 @@ if(isset($_POST['signup'])){
         	$query = "INSERT INTO user (name, email, phone, password, level, vkey) 
   			VALUES('$name', '$email_1', '$phone', '$pass_1', 1, '$vkey')";
         	mysqli_query($conn, $query);
-			$subject = "Email Verification";
-			$message = "<a href='http://localhost/specialneeds/verify.php?vkey=$vkey'>Register Account</a>";
-			$headers = "From: m8haakom@gmail.com \r\n";
-			$headers .= "MIME-Version: 1.0"."\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
-			mail($email,$subject,$message,$headers);
+        	$_SESSION['username'] = $name;
+			$_SESSION['level'] = 1;
+  	        $_SESSION['success'] = "yes";
+			
   	        header('location: index.php');
   }
-  
-  
 }
 
 //signin
 if(isset($_POST['signin'])){
-	$email = $_POST['email'];
+	$mail = $_POST['mail'];
 	$pass_1 = $_POST['pass_1'];
 	
-	if (empty($email)) { array_push($errors, "اسم المستخدم مطلوب"); }
+	if (empty($mail)) { array_push($errors, "اسم المستخدم مطلوب"); }
 	if (empty($pass_1)) { array_push($errors, "الرقم السري مطلوب"); }
 	
 	if (count($errors) == 0) {
 			$pass_1 = md5($pass_1);
-			$query = "SELECT * FROM user WHERE email='$email' AND password='$pass_1'";
+			$query = "SELECT * FROM user WHERE email='$mail' AND password='$pass_1'";
 			$results = mysqli_query($conn, $query);
 			$row = mysqli_fetch_assoc($results);
-        if($row['verified'] == 0){
+        if($row['verified'] == 1){
 			if (mysqli_num_rows($results) == 1) {
 				
+				if(!empty($_POST["remember"])) {
+	                setcookie ("mail",$_POST["mail"],time()+ 60*60*24*365);
+	                setcookie ("password",$_POST["pass_1"],time()+ 60*60*24*365);
+	                //echo "Cookies Set Successfuly";
+                }else {
+	                 setcookie("mail","");
+	                 setcookie("password","");
+	                // echo "Cookies Not Set";
+                 }
 				
-				$_SESSION['name'] = $row['name'];
+				$_SESSION['username'] = $row['name'];
 				$_SESSION['level'] = $row['level'];
 				header('location: index.php');
 			}else {
-				header('location: SignUp.php');
+				array_push($errors, "اسم المستخدم او الرقم السري خطأ");
 			}
 		}else{
 			array_push($errors, "الحساب غير مفعل");
 		}
     }
   
+}
+
+//add
+if(isset($_POST['add'])){
+	    // name of the uploaded file
+    $filename = $_FILES['file']['name'];
+
+    // destination of the file on the server
+    $destination = 'uploads/' . $filename;
+
+    // get the file extension
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+	$file = $_FILES['file']['tmp_name'];
+    $size = $_FILES['file']['size'];
+	$fileType = $_FILES['file']['type'];
+	$name = $_POST['name'];
+	$description = $_POST['description'];
+	$price = $_POST['price'];
+	$quantity = $_POST['quantity'];
+	
+        // move the uploaded (temporary) file to the specified destination
+        if (move_uploaded_file($file, $destination)) {
+            $sql = "INSERT INTO item (name, description, price, quantity,image) VALUES ('$name', '$description', $price, $quantity,'$filename')";
+            if (mysqli_query($conn, $sql)) {
+                echo "File uploaded successfully";
+            }
+        } else {
+            echo "Failed to upload file.";
+        }
 }
 ?>
