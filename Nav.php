@@ -1,6 +1,7 @@
 							<nav id="nav">
 								<ul>
 									<li class="current"><a href="index.php">الصفحة الرئيسية</a></li>
+									<?php if(!empty($_SESSION['username'])){echo '
 									<li>
 										الحساب
 										<ul>
@@ -16,7 +17,8 @@
 											</li>
 											<li><a href="SignOut.php">تسجيل الخروج</a></li>
 										</ul>
-									</li>
+									</li> ';
+									} ?>
 									<li><a href="">المستلزمات الجديدة</a></li>
 									<li><a href="">المستلزمات المستعملة</a></li>
 									<li><a href="SignIn.php">تسجيل الدخول</a></li>
