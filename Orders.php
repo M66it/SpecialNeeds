@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Special Needs Supplies - SignUp</title>
+		<title>Special Needs Supplies - Account</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -10,62 +10,41 @@
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
 
-			<!-- الجواجهة -->
+			<!-- الواجهة -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 
 						<!-- اللوقو -->
 							<div id="logo">
 								<img src="images/Special Needs Only.png" style="width:20%">
-								<span style="font-size:2vw"><b>Special Needs</b> Supplies</span>
+								<span style="font-size:2vw"><b>Special Needss</b> Supplies</span>
 							</div>
 							<hr style="color: black">
 						<!-- القائمة -->
-<?php require_once('Nav.php'); ?>
+
+
+						<?php require_once('Nav.php'); ?>	
+
 
 					</header>
 				</div>
 
-			<!-- القالب -->
 				<center><div id="features-wrapper">
 					<div class="container">
 						<div class="row2">
 							<div class="col-4 col-10-medium">
-
+								<p>الطلبات</p>
 								<!-- نموذج انشاء الحساب -->
 									<section class="box">
-										<?php require_once('errors.php'); ?>
-										<form action="" method="post">
-										<label for="name">الاسم</label>
-										<input type="text" id="name" name="name" >
-										
-										<label for="email_1">الايميل</label>
-										<input type="email" id="email_1" name="email_1" required>
-
-										<label for="email_2">اعادة الايميل</label>
-										<input type="email" id="email_2" name="email_2" required>
-										
-										<label for="phone">رقم الجوال</label>
-										<input type="number" id="phone" name="phone" required>
-										
-										<label for="pass_1">الرقم السري</label>
-										<input type="password" id="pass_1" name="pass_1" required>
-										
-										<label for="pass_2">اعادة الرقم السري</label>
-										<input type="password" id="pass_2" name="pass_2" required>
-										<label class="container2">قرأت ووافقت على الشروط
-										<input type="checkbox" required>
-										<span class="checkmark"></span>
-										</label>
-										<div class="inner"><center>
-											<header>
-
-												<button type="submet" name="signup">انشاء الحساب</button>
-												<br><br>
-												</form>
-												<a href="SignIn.php" class="button">تسجيل الدخول</a>
-											</header>
-										</center></div>
+										<label for="pass_1">2021/10/07</label>
+										<p>كرسي متحرك - عكاز</p>
+										<p>لم يتم الدفع</p>
+									</section>
+									
+									<section class="box">
+										<label for="pass_1">2021/05/12</label>
+										<p>سرير طبي - كرسي متحرك</p>
+										<p>تم النوصيل</p>
 									</section>
 							</div>
 						</div>

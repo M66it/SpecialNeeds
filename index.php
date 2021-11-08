@@ -12,7 +12,7 @@
 
 			<!-- الواجهة -->
 				<div id="header-wrapper">
-					<header id="header" class="container ">
+					<header id="header" class="container">
 
 						<!-- اللوقو -->
 							<div id="logo">
@@ -23,21 +23,7 @@
 						<!-- القائمة -->
 
 
-<<<<<<< HEAD:index.html
-					
-							<nav id="nav">
-								<ul>
-									<li class="current"><a href="index.html ">الصفحة الرئيسية</a></li>
-									
-									</li>
-									<li><a href="no-sidebar.html">التواصل</a></li>
-									<li><a href="right-sidebar.html">المستلزمات المستعملة</a></li>
-									<li><a href="left-sidebar.html">المستلزمات الجديدة</a></li>
-									<li><a href="cart.php">السلة</a></li>
-
-=======
 <?php require_once('Nav.php'); ?>					
->>>>>>> 8f92b2e77888af449d08960b6fa49e98457e089d:index.php
 
 
 					</header>
@@ -51,7 +37,7 @@
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="images/1.jpg" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2>الاسم</h2>
@@ -67,7 +53,7 @@
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/2.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="images/2.jpg" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2>الاسم</h2>
@@ -83,7 +69,7 @@
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/3.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="images/3.jpg" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2>الاسم</h2>
@@ -98,7 +84,7 @@
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/4.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="images/4.jpg" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2>الاسم</h2>
@@ -113,7 +99,7 @@
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/5.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="images/5.jpg" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2>الاسم</h2>
@@ -128,7 +114,7 @@
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/6.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="images/6.jpg" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2>الاسم</h2>

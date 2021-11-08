@@ -1,23 +1,14 @@
-<<<<<<< HEAD
 <?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
     <head>
 		<title>Special Needs Supplies - cart</title>
-=======
-<html>
-    <head>
->>>>>>> 293cdb558dc814e2c24f23b54f91cd02ef21da97
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		
 	</head>
-<<<<<<< HEAD
 	<body class="is-preload homepage">
-=======
-	<body  class="is-preload homepage">
->>>>>>> 293cdb558dc814e2c24f23b54f91cd02ef21da97
 		<div id="page-wrapper">
 
 			<!-- الواجهة -->
@@ -32,41 +23,7 @@
 							<hr style="color: black">
 						<!-- القائمة -->
 
-<<<<<<< HEAD
 <?php require_once('Nav.php'); ?>	
-=======
-
-					
-							<nav id="nav">
-								<ul>
-									<li class="current"><a href="index.html">الصفحة الرئيسية</a></li>
-									
-									</li>
-									<li><a href="no-sidebar.html">التواصل</a></li>
-									<li><a href="right-sidebar.html">المستلزمات المستعملة</a></li>
-									<li><a href="left-sidebar.html">المستلزمات الجديدة</a></li>
-									<li><a href="cart.html">السلة</a></li>
-									
-
-
-									<li>
-										<a href="#">الحساب</a>
-										<ul>
-											<li><a href="#">معلومات الحساب</a></li>
-											<li><a href="#">الطلبات</a></li>
-											<li>
-												<a href="#">التبرعات</a>
-												<ul>
-													<li><a href="#">طلب تبرع بالمستلزمات</a></li>
-													<li><a href="#">طلب احتياج مستلزمات</a></li>
-													<li><a href="#">قائمة الطلبات</a></li>
-												</ul>
-											</li>
-											<li><a href="#">تسجيل الخروج</a></li>
-										</ul>
-								</ul>
-							</nav>
->>>>>>> 293cdb558dc814e2c24f23b54f91cd02ef21da97
 
 					</header>
 				</div>
@@ -144,7 +101,6 @@
 				</div>
 			</div>
              </section>
-<<<<<<< HEAD
 
 			<!-- الجزء السفلي -->
 				<div id="footer-wrapper">
@@ -181,9 +137,6 @@
 
 			</div>
 
-=======
-				
->>>>>>> 293cdb558dc814e2c24f23b54f91cd02ef21da97
 		<!-- سكربتات -->
 
 			<script src="assets/js/jquery.min.js"></script>
