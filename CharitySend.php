@@ -1,74 +1,75 @@
-<?php
-session_start();
-<<<<<<< HEAD
-$end="";
-if(isset($_GET['vkey'])){
-	$vkey = $_GET['vkey'];
-	$conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
-	$sql = "select verified,vkey from sn-users where verified = 0 and vkey ='$vkey' limit 1";
-	$result1 = mysqli_query($conn, $sql);
-	$result2 = mysqli_num_rows($result1);
-	if($result2 == 1){ 
-	$end = "your account has been verified. you may now signin";
-	$update = mysqli_query($conn,"update sn-users set verified = 1 where vkey = '$vkey' limit 1");
-	}else{
-		$end = "this account invalid or already verified";
-	}
-}else{
-	$end ="Somthing wet wrong";
-}
-?>
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Special Needs Supplies - SignUp</title>
+		<title>Special Needs Supplies - charity send</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
 	</head>
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
 
-			<!-- الجواجهة -->
+			<!-- Header -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 
-						<!-- اللوقو -->
+						<!-- Logo -->
 							<div id="logo">
 								<img src="images/Special Needs Only.png" style="width:20%">
 								<span style="font-size:2vw"><b>Special Needs</b> Supplies</span>
 							</div>
 							<hr style="color: black">
-						<!-- القائمة -->
+						<!-- Nav -->
 <?php require_once('Nav.php'); ?>
 
 					</header>
 				</div>
 
-			<!-- القالب -->
+			<!-- Items -->
 				<center><div id="features-wrapper">
 					<div class="container">
 						<div class="row2">
 							<div class="col-4 col-10-medium">
 
-								<!-- نموذج انشاء الحساب -->
+								<!-- Box -->
 									<section class="box">
-										<?php
-											echo $end;
-										?>
+										<?php require_once('errors.php'); ?>
+										<form action="" method="post">
+										<label for="mail">عنوان الرسالة</label>
+										<input type="text" id="mail" name="mail"<?php if(!empty($_COOKIE['mail'])) { ?> value="<?php print $_COOKIE['mail'] ?>" <?php } ?> required>
+										<br>
+										<label for="pass">نص الرسالة</label>
+										<textarea id="story" name="story"
+										rows="5" cols="33">
+										
+										</textarea>
+										<label for="mail">المدينة</label>
+										<input type="text" id="mail" name="mail"<?php if(!empty($_COOKIE['mail'])) { ?> value="<?php print $_COOKIE['mail'] ?>" <?php } ?> required>
+										<br>
+										<div class="inner"><center>
+											<header>
+												<br>
+												<button type="submet" name="">ارسال</button>
+												<br><br>
+												</form>
+
+											</header>
+										</center></div>
 									</section>
 							</div>
 						</div>
 					</div>
 				</div><center>
 
-			<!-- الجزء السفلي -->
+			<!-- Footer -->
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
 						<div class="row">
 							<div class="col-3 col-6-medium col-12-small">
 
-								<!-- التواصل -->
+								<!-- Contact -->
 									<section class="widget contact last">
 										<h3>طرق التواصل</h3>
 										<ul>
@@ -97,7 +98,7 @@ if(isset($_GET['vkey'])){
 
 			</div>
 
-		<!-- سكربتات -->
+		<!-- Scripts -->
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -108,22 +109,3 @@ if(isset($_GET['vkey'])){
 
 	</body>
 </html>
-=======
-if(isset($_GET['vkey'])){
-	$vkey = $_GET['vkey'];
-	$conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
-	$sql = "select verified,vkey from user where verified = 0 and vkey ='$vkey' limit 1";
-	$result1 = mysqli_query($conn, $sql);
-	$result2 = mysqli_num_rows($result1);
-	if($result2 == 1){ 
-	$_SESSION['verifiedyes'] = "yes";
-	$update = mysqli_query($conn,"update user set verified = 1 where vkey = '$vkey' limit 1");
-	}else{
-		$_SESSION['verifiedno'] = "yes";
-	}
-	header('location: index.php');
-}else{
-	header('location: index.php');
-}
-?>
->>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027

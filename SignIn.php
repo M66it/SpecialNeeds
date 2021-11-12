@@ -35,14 +35,25 @@
 
 								<!-- Box -->
 									<section class="box">
+<<<<<<< HEAD
 										<form action="" method="post">
 										<label for="mail">الايميل</label>
 										<input type="email" id="mail" name="mail"required>
+=======
+										<?php require_once('errors.php'); ?>
+										<form action="" method="post">
+										<label for="mail">الايميل</label>
+										<input type="email" id="mail" name="mail"<?php if(!empty($_COOKIE['mail'])) { ?> value="<?php print $_COOKIE['mail'] ?>" <?php } ?> required>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
 										<br>
 										<label for="pass">الرقم السري</label>
 										<input type="password" id="pass" name="pass_1"required>
 										<label class="container2">تذكر الايميل
+<<<<<<< HEAD
 										<input type="checkbox" >
+=======
+										<input type="checkbox" name="remember">
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
 										<span class="checkmark"></span>
 										</label>
 										<div class="inner"><center>

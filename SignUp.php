@@ -34,6 +34,10 @@
 
 								<!-- نموذج انشاء الحساب -->
 									<section class="box">
+<<<<<<< HEAD
+=======
+										<?php require_once('errors.php'); ?>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
 										<form action="" method="post">
 										<label for="name">الاسم</label>
 										<input type="text" id="name" name="name" >

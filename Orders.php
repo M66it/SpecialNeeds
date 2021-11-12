@@ -1,27 +1,8 @@
-<?php
-session_start();
-<<<<<<< HEAD
-$end="";
-if(isset($_GET['vkey'])){
-	$vkey = $_GET['vkey'];
-	$conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
-	$sql = "select verified,vkey from sn-users where verified = 0 and vkey ='$vkey' limit 1";
-	$result1 = mysqli_query($conn, $sql);
-	$result2 = mysqli_num_rows($result1);
-	if($result2 == 1){ 
-	$end = "your account has been verified. you may now signin";
-	$update = mysqli_query($conn,"update sn-users set verified = 1 where vkey = '$vkey' limit 1");
-	}else{
-		$end = "this account invalid or already verified";
-	}
-}else{
-	$end ="Somthing wet wrong";
-}
-?>
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Special Needs Supplies - SignUp</title>
+		<title>Special Needs Supplies - Account</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,33 +10,41 @@ if(isset($_GET['vkey'])){
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
 
-			<!-- الجواجهة -->
+			<!-- الواجهة -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 
 						<!-- اللوقو -->
 							<div id="logo">
 								<img src="images/Special Needs Only.png" style="width:20%">
-								<span style="font-size:2vw"><b>Special Needs</b> Supplies</span>
+								<span style="font-size:2vw"><b>Special Needss</b> Supplies</span>
 							</div>
 							<hr style="color: black">
 						<!-- القائمة -->
-<?php require_once('Nav.php'); ?>
+
+
+						<?php require_once('Nav.php'); ?>	
+
 
 					</header>
 				</div>
 
-			<!-- القالب -->
 				<center><div id="features-wrapper">
 					<div class="container">
 						<div class="row2">
 							<div class="col-4 col-10-medium">
-
+								<p>الطلبات</p>
 								<!-- نموذج انشاء الحساب -->
 									<section class="box">
-										<?php
-											echo $end;
-										?>
+										<label for="pass_1">2021/10/07</label>
+										<p>كرسي متحرك - عكاز</p>
+										<p>لم يتم الدفع</p>
+									</section>
+									
+									<section class="box">
+										<label for="pass_1">2021/05/12</label>
+										<p>سرير طبي - كرسي متحرك</p>
+										<p>تم النوصيل</p>
 									</section>
 							</div>
 						</div>
@@ -108,22 +97,3 @@ if(isset($_GET['vkey'])){
 
 	</body>
 </html>
-=======
-if(isset($_GET['vkey'])){
-	$vkey = $_GET['vkey'];
-	$conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
-	$sql = "select verified,vkey from user where verified = 0 and vkey ='$vkey' limit 1";
-	$result1 = mysqli_query($conn, $sql);
-	$result2 = mysqli_num_rows($result1);
-	if($result2 == 1){ 
-	$_SESSION['verifiedyes'] = "yes";
-	$update = mysqli_query($conn,"update user set verified = 1 where vkey = '$vkey' limit 1");
-	}else{
-		$_SESSION['verifiedno'] = "yes";
-	}
-	header('location: index.php');
-}else{
-	header('location: index.php');
-}
-?>
->>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
