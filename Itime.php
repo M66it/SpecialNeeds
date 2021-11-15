@@ -1,27 +1,8 @@
-<?php
-session_start();
-<<<<<<< HEAD
-$end="";
-if(isset($_GET['vkey'])){
-	$vkey = $_GET['vkey'];
-	$conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
-	$sql = "select verified,vkey from sn-users where verified = 0 and vkey ='$vkey' limit 1";
-	$result1 = mysqli_query($conn, $sql);
-	$result2 = mysqli_num_rows($result1);
-	if($result2 == 1){ 
-	$end = "your account has been verified. you may now signin";
-	$update = mysqli_query($conn,"update sn-users set verified = 1 where vkey = '$vkey' limit 1");
-	}else{
-		$end = "this account invalid or already verified";
-	}
-}else{
-	$end ="Somthing wet wrong";
-}
-?>
+<?php require_once('Logic.php'); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Special Needs Supplies - SignUp</title>
+		<title>Special Needs Supplies - SignIn</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,46 +10,87 @@ if(isset($_GET['vkey'])){
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
 
-			<!-- الجواجهة -->
+			<!-- Header -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 
-						<!-- اللوقو -->
+						<!-- Logo -->
 							<div id="logo">
 								<img src="images/Special Needs Only.png" style="width:20%">
 								<span style="font-size:2vw"><b>Special Needs</b> Supplies</span>
 							</div>
 							<hr style="color: black">
-						<!-- القائمة -->
+						<!-- Nav -->
 <?php require_once('Nav.php'); ?>
 
 					</header>
 				</div>
 
-			<!-- القالب -->
+			<!-- Items -->
 				<center><div id="features-wrapper">
 					<div class="container">
-						<div class="row2">
-							<div class="col-4 col-10-medium">
+						<div class="row">
+							<div class="col-4 col-12-medium">
 
-								<!-- نموذج انشاء الحساب -->
-									<section class="box">
-										<?php
-											echo $end;
-										?>
+								<!-- قالب -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+									</section>
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+									</section>
+							</div>
+							<div class="col-12 col-10-larg">
+
+								<!-- Box -->
+										<form action="index.html" method="post">
+										<section class="box feature">
+										
+										<h4>الوصف</h4>
+										<h2>السعر</h2>
+										<label for="count">الكمية</label>
+										<input id="count" max="10" type="number" value="1">
+										<br>
+										<label for="size">المقاس</label>
+										<select class=" select-my" id="size">
+											<option>المقاسات</option>
+											<option>XL</option>
+											<option>XXL</option>
+											<option>Small</option>
+											<option>Large</option>
+										</select>
+										<div class="inner"><center>
+											<header>
+
+												<button type="submet">اضافة الى السلة</button>
+											</header>
+										</form>
+										</center></div>
 									</section>
 							</div>
 						</div>
 					</div>
 				</div><center>
 
-			<!-- الجزء السفلي -->
+			<!-- Footer -->
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
 						<div class="row">
 							<div class="col-3 col-6-medium col-12-small">
 
-								<!-- التواصل -->
+								<!-- Contact -->
 									<section class="widget contact last">
 										<h3>طرق التواصل</h3>
 										<ul>
@@ -97,7 +119,7 @@ if(isset($_GET['vkey'])){
 
 			</div>
 
-		<!-- سكربتات -->
+		<!-- Scripts -->
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -105,25 +127,6 @@ if(isset($_GET['vkey'])){
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 	</body>
+
 </html>
-=======
-if(isset($_GET['vkey'])){
-	$vkey = $_GET['vkey'];
-	$conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
-	$sql = "select verified,vkey from user where verified = 0 and vkey ='$vkey' limit 1";
-	$result1 = mysqli_query($conn, $sql);
-	$result2 = mysqli_num_rows($result1);
-	if($result2 == 1){ 
-	$_SESSION['verifiedyes'] = "yes";
-	$update = mysqli_query($conn,"update user set verified = 1 where vkey = '$vkey' limit 1");
-	}else{
-		$_SESSION['verifiedno'] = "yes";
-	}
-	header('location: index.php');
-}else{
-	header('location: index.php');
-}
-?>
->>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027

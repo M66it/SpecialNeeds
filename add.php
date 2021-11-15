@@ -34,6 +34,26 @@
 
 								<!-- نموذج انشاء الحساب -->
 									<section class="box">
+<<<<<<< HEAD
+										<form action="" method="post">
+										<label for="name">اسم المنتج</label>
+										<input type="text" id="name" name="name"required>
+										<br>
+										<label for="name">وصف المنتج</label>
+										<input type="text" id="name" name="description"required>
+										<br>
+										<label for="name">السعر</label>
+										<input type="number" id="name" name="price"required>
+										<br>
+										<label for="name">الكمية</label>
+										<input type="number" id="name" name="quantity"required>
+										<br>
+										<label for="file">اضافة صورة</label>
+										<input type="file" name="file">
+										<br>
+										<label class="container2">قرأت ووافقت على الشروط
+										<input type="checkbox" required>
+=======
 										<form action="" method="post" enctype="multipart/form-data">
 										<label for="name">اسم المنتج</label>
 										<input type="text" id="name" name="name" required>
@@ -52,6 +72,7 @@
 										<br>
 										<label class="container2">قرأت ووافقت على الشروط
 										<input type="checkbox" value="<?php echo $_SESSION['id']; ?>" name="id" required>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
 										<span class="checkmark"></span>
 										</label>
 										<div class="inner"><center>

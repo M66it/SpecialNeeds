@@ -56,7 +56,15 @@
 
 								<!-- قالب -->
 									<section class="box feature">
+<<<<<<< HEAD
 										<a href="Item.php" class="image featured"><img src="uploads/<?php echo $item['image'];?>" alt="" /></a>
+=======
+<<<<<<< HEAD
+										<a href="#" class="image featured"><img src="images/1.jpg" alt="" /></a>
+=======
+										<a href="Item.php" class="image featured"><img src="images/1.jpg" alt="" /></a>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
+>>>>>>> d8915d2da94d7aab20d92056c19cb4693113a3ea
 										<div class="inner"><center>
 											<header style="margin: 20px">
 												<h2><?php echo $item['name'];?></h2>
@@ -64,9 +72,113 @@
 											</header>
 											<p><?php echo $item['description'];?></p>
 										</center></div>
+<<<<<<< HEAD
 						</div><?php } ?>
 						
 						</div><center><button>next</button></center>
+=======
+									
+									
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+<<<<<<< HEAD
+										<a href="#" class="image featured"><img src="images/2.jpg" alt="" /></a>
+=======
+										<a href="Item.php" class="image featured"><img src="images/2.jpg" alt="" /></a>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
+										<div class="inner"><center>
+											<header style="margin: 20px">
+												<h2>الاسم</h2>
+												<p>السعر</p>
+											</header>
+											<p>الوصف</p>
+										</center></div>
+										
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+<<<<<<< HEAD
+										<a href="#" class="image featured"><img src="images/3.jpg" alt="" /></a>
+=======
+										<a href="Item.php" class="image featured"><img src="images/3.jpg" alt="" /></a>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
+										<div class="inner"><center>
+											<header style="margin: 20px">
+												<h2>الاسم</h2>
+												<p>السعر</p>
+											</header>
+											<p>الوصف</p>
+										</center></div>
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+<<<<<<< HEAD
+										<a href="#" class="image featured"><img src="images/4.jpg" alt="" /></a>
+=======
+										<a href="Item.php" class="image featured"><img src="images/4.jpg" alt="" /></a>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
+										<div class="inner"><center>
+											<header style="margin: 20px">
+												<h2>الاسم</h2>
+												<p>السعر</p>
+											</header>
+											<p>الوصف</p>
+										</center></div>
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+<<<<<<< HEAD
+										<a href="#" class="image featured"><img src="images/5.jpg" alt="" /></a>
+=======
+										<a href="Item.php" class="image featured"><img src="images/5.jpg" alt="" /></a>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
+										<div class="inner"><center>
+											<header style="margin: 20px">
+												<h2>الاسم</h2>
+												<p>السعر</p>
+											</header>
+											<p>الوصف</p>
+										</center></div>
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- قالب -->
+									<section class="box feature">
+<<<<<<< HEAD
+										<a href="#" class="image featured"><img src="images/6.jpg" alt="" /></a>
+=======
+										<a href="Item.php" class="image featured"><img src="images/6.jpg" alt="" /></a>
+>>>>>>> 6377ffb864ece4cd0ad6f8b7127fca9023683027
+										<div class="inner"><center>
+											<header style="margin: 20px">
+												<h2>الاسم</h2>
+												<p>السعر</p>
+											</header>
+											<p>الوصف</p>
+										</center></div>
+									</section>
+
+							</div>
+						</div>
+>>>>>>> d8915d2da94d7aab20d92056c19cb4693113a3ea
 					</div>
 				</div>
 

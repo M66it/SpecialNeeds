@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+$errors = array();
+
+
 if(!empty($_SESSION['signup'])){echo '<script type="text/JavaScript"> 
      alert("تم انشاء الحساب يرجى تفعيل الحساب عن طريق الايميل");
      </script>';
@@ -19,6 +22,7 @@ if(!empty($_SESSION['verifiedno'])){echo '<script type="text/JavaScript">
 
 $errors = array();
 
+
 // connect to the database
 $conn = mysqli_connect('localhost', 'root', '', 'specialneeds');
 
@@ -32,12 +36,21 @@ if(isset($_POST['signup'])){
 	$pass_1 = $_POST['pass_1'];
 	$pass_2 = $_POST['pass_2'];
 	
+
+	if (empty($name)) { array_push($errors, "اسم المستخدم مطلوب"); }
+	if (empty($email_1)) { array_push($errors, "الايميل مطلوب"); }
+	if (empty($email_2)) { array_push($errors, "الايميل مطلوب"); }
+	if (empty($pass_1) || empty($pass_2)) { array_push($errors, "الرقم السري مطلوب"); }
+    if (!preg_match($phone_regex, $phone)) { array_push($errors, "الرجاء ادخال رقم جوال سعودي"); }
+	if ($pass_1 != $pass_2) { array_push($errors, "الرقم السري غير متطابق"); }
+
 	if (empty($name)) { array_push($errors, "- اسم المستخدم مطلوب -"); }
 	if (empty($email_1)) { array_push($errors, "- الايميل مطلوب -"); }
 	if (empty($email_2)) { array_push($errors, "- الايميل مطلوب -"); }
 	if (empty($pass_1) || empty($pass_2)) { array_push($errors, "- الرقم السري مطلوب -"); }
     if (!preg_match($phone_regex, $phone)) { array_push($errors, "- الرجاء ادخال رقم جوال سعودي -"); }
 	if ($pass_1 != $pass_2) { array_push($errors, "- الرقم السري غير متطابق -"); }
+
 	
 	$user_check_query = "SELECT * FROM user WHERE name='$name' OR email='$email_1' OR phone='$phone' LIMIT 1";
     $result = mysqli_query($conn, $user_check_query);
@@ -45,6 +58,17 @@ if(isset($_POST['signup'])){
   
        if ($user) { // if user exists
          if ($user['name'] === $name) {
+
+           array_push($errors, "اسم المستخدم موجود مسبقا");
+         }
+
+         if ($user['email_1'] === $email_1) {
+          array_push($errors, "الايميل موجود مسبقا");
+         }
+		 
+		 if ($user['phone'] === $phone) {
+          array_push($errors, "رقم الجوال موجود مسبقا");
+
            array_push($errors, "- اسم المستخدم موجود مسبقا -");
          }
 
@@ -54,12 +78,23 @@ if(isset($_POST['signup'])){
 		 
 		 if ($user['phone'] === $phone) {
           array_push($errors, "- رقم الجوال موجود مسبقا -");
+
          }
         }
 	
 	if (count($errors) == 0) {
          	$pass_1 = md5($pass_1);//encrypt the password before saving in the database
 			$vkey = md5(time().round(3,999));
+
+
+        	$query = "INSERT INTO user (name, email, phone, password, level, vkey, verified) 
+  			VALUES('$name', '$email_1', '$phone', '$pass_1', 1, '$vkey', 1)";
+        	mysqli_query($conn, $query);
+        	$_SESSION['username'] = $name;
+			$_SESSION['level'] = 1;
+  	        $_SESSION['success'] = "yes";
+			
+  	        header('location: index.php');
 
         	$query = "INSERT INTO user (name, email, phone, password, level, vkey) 
   			VALUES('$name', '$email_1', '$phone', '$pass_1', 1, '$vkey')";
@@ -72,6 +107,7 @@ if(isset($_POST['signup'])){
 			$headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
 			mail($email_1,$subject,$message,$headers);
   	        header('location: SignIn.php');
+
   }
 }
 
@@ -80,14 +116,42 @@ if(isset($_POST['signin'])){
 	$mail = $_POST['mail'];
 	$pass_1 = $_POST['pass_1'];
 	
+
+	if (empty($mail)) { array_push($errors, "اسم المستخدم مطلوب"); }
+	if (empty($pass_1)) { array_push($errors, "الرقم السري مطلوب"); }
+
 	if (empty($mail)) { array_push($errors, "- اسم المستخدم مطلوب -"); }
 	if (empty($pass_1)) { array_push($errors, "- الرقم السري مطلوب -"); }
+
 	
 	if (count($errors) == 0) {
 			$pass_1 = md5($pass_1);
 			$query = "SELECT * FROM user WHERE email='$mail' AND password='$pass_1'";
 			$results = mysqli_query($conn, $query);
 			$row = mysqli_fetch_assoc($results);
+
+        if($row['verified'] == 1){
+			if (mysqli_num_rows($results) == 1) {
+				
+				if(!empty($_POST["remember"])) {
+	                setcookie ("mail",$_POST["mail"],time()+ 60*60*24*365);
+	                setcookie ("password",$_POST["pass_1"],time()+ 60*60*24*365);
+	                //echo "Cookies Set Successfuly";
+                }else {
+	                 setcookie("mail","");
+	                 setcookie("password","");
+	                // echo "Cookies Not Set";
+                 }
+				
+				$_SESSION['username'] = $row['name'];
+				$_SESSION['level'] = $row['level'];
+				header('location: index.php');
+			}else {
+				array_push($errors, "اسم المستخدم او الرقم السري خطأ");
+			}
+		}else{
+			array_push($errors, "الحساب غير مفعل");
+
 			if (mysqli_num_rows($results) == 1) {
 				if($row['verified'] == 1){
 				if(!empty($_POST["remember"])) {
@@ -106,6 +170,7 @@ if(isset($_POST['signin'])){
 			}
 		}else{
 			array_push($errors, "- اسم المستخدم او الرقم السري خطأ -");
+
 		}
     }
   
@@ -113,6 +178,19 @@ if(isset($_POST['signin'])){
 $id = $_SESSION['id'];
 //add
 if(isset($_POST['add'])){
+
+	    // name of the uploaded file
+    $filename = $_FILES['file']['name'];
+
+    // destination of the file on the server
+    $destination = 'uploads/' . $filename;
+
+    // get the file extension
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+	$file = $_FILES['file']['tmp_name'];
+    $size = $_FILES['file']['size'];
+	$fileType = $_FILES['file']['type'];
+
 	$user = $_POST['id'];
 	    // name of the uploaded file
     $filename = $_FILES['imagefile']['name'];
@@ -128,6 +206,7 @@ if(isset($_POST['add'])){
 	$file = $_FILES['imagefile']['tmp_name'];
     $size = $_FILES['imagefile']['size'];
 	$fileType = $_FILES['imagefile']['type'];
+
 	$name = $_POST['name'];
 	$description = $_POST['description'];
 	$price = $_POST['price'];
@@ -135,6 +214,14 @@ if(isset($_POST['add'])){
 	
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
+
+            $sql = "INSERT INTO item (name, description, price, quantity,image) VALUES ('$name', '$description', $price, $quantity,'$filename')";
+            if (mysqli_query($conn, $sql)) {
+                echo "File uploaded successfully";
+            }
+        } else {
+            echo "Failed to upload file.";
+
             $sql = "INSERT INTO item (userid, name, description, price, quantity, image) VALUES ($user, '$name', '$description', $price, $quantity,'$newname')";
             if (mysqli_query($conn, $sql)) {
                 echo '<script type="text/JavaScript"> 
@@ -142,6 +229,7 @@ if(isset($_POST['add'])){
      </script>';
             }
         } else {
+<<<<<<< HEAD
             echo '<script type="text/JavaScript"> 
      alert("حدث خطا");
      </script>';
@@ -185,4 +273,14 @@ if(isset($_POST['userchange'])){
 			}
 	 }
 }
+=======
+			echo '<script type="text/JavaScript"> 
+			alert("حدث خطا");
+		 </script>';
+	
+
+		} 
+        
+	}
+>>>>>>> d8915d2da94d7aab20d92056c19cb4693113a3ea
 ?>
