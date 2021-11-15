@@ -1,4 +1,11 @@
-<?php require_once('Logic.php'); ?>
+<?php require_once('Logic.php'); 
+    //pull
+	
+    $sql = "SELECT * FROM item";
+	
+    $result = mysqli_query($conn, $sql);
+
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -33,99 +40,33 @@
 				<div id="features-wrapper">
 					<div class="container">
 						<div class="row">
+						<?php
+						$inum=1;
+						$ipage=1;
+						$check=0;
+						while ($item = mysqli_fetch_assoc($result)) {
+							if($inum == 10){
+								break;
+							}
+							$inum++;
+							if($ipage <= $check){
+								$ipage++;
+							continue; }?>
 							<div class="col-4 col-12-medium">
 
 								<!-- قالب -->
 									<section class="box feature">
-										<a href="Item.php" class="image featured"><img src="images/1.jpg" alt="" /></a>
+										<a href="Item.php" class="image featured"><img src="uploads/<?php echo $item['image'];?>" alt="" /></a>
 										<div class="inner"><center>
 											<header style="margin: 20px">
-												<h2>الاسم</h2>
-												<p>السعر</p>
+												<h2><?php echo $item['name'];?></h2>
+												<p><?php echo $item['price'];?></p>
 											</header>
-											<p>الوصف</p>
+											<p><?php echo $item['description'];?></p>
 										</center></div>
-									
-									
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- قالب -->
-									<section class="box feature">
-										<a href="Item.php" class="image featured"><img src="images/2.jpg" alt="" /></a>
-										<div class="inner"><center>
-											<header style="margin: 20px">
-												<h2>الاسم</h2>
-												<p>السعر</p>
-											</header>
-											<p>الوصف</p>
-										</center></div>
-										
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- قالب -->
-									<section class="box feature">
-										<a href="Item.php" class="image featured"><img src="images/3.jpg" alt="" /></a>
-										<div class="inner"><center>
-											<header style="margin: 20px">
-												<h2>الاسم</h2>
-												<p>السعر</p>
-											</header>
-											<p>الوصف</p>
-										</center></div>
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- قالب -->
-									<section class="box feature">
-										<a href="Item.php" class="image featured"><img src="images/4.jpg" alt="" /></a>
-										<div class="inner"><center>
-											<header style="margin: 20px">
-												<h2>الاسم</h2>
-												<p>السعر</p>
-											</header>
-											<p>الوصف</p>
-										</center></div>
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- قالب -->
-									<section class="box feature">
-										<a href="Item.php" class="image featured"><img src="images/5.jpg" alt="" /></a>
-										<div class="inner"><center>
-											<header style="margin: 20px">
-												<h2>الاسم</h2>
-												<p>السعر</p>
-											</header>
-											<p>الوصف</p>
-										</center></div>
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- قالب -->
-									<section class="box feature">
-										<a href="Item.php" class="image featured"><img src="images/6.jpg" alt="" /></a>
-										<div class="inner"><center>
-											<header style="margin: 20px">
-												<h2>الاسم</h2>
-												<p>السعر</p>
-											</header>
-											<p>الوصف</p>
-										</center></div>
-									</section>
-
-							</div>
-						</div>
+						</div><?php } ?>
+						
+						</div><center><button>next</button></center>
 					</div>
 				</div>
 

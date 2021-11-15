@@ -110,7 +110,7 @@ if(isset($_POST['signin'])){
     }
   
 }
-
+$id = $_SESSION['id'];
 //add
 if(isset($_POST['add'])){
 	$user = $_POST['id'];
@@ -146,5 +146,43 @@ if(isset($_POST['add'])){
      alert("حدث خطا");
      </script>';
         }
+}
+
+//user change
+if(isset($_POST['userchange'])){
+	
+	$name = $_POST['name'];
+	
+	$phone = $_POST['phone'];
+	
+	$email = $_POST['email'];
+	
+	$password = $_POST['password'];
+	
+	$password = md5($password);
+	
+	 if(empty($password)){
+			$sql = "UPDATE user SET name='$name', phone='$phone', email='$email' WHERE id = $id";
+            if (mysqli_query($conn, $sql)) {
+                echo '<script type="text/JavaScript"> 
+				alert("تم التعديل");
+				</script>';
+			} else {
+				echo '<script type="text/JavaScript"> 
+				alert("حدث خطا");
+				</script>';
+			}
+	 }else{
+			$sql = "UPDATE user SET name='$name', phone='$phone', email='$email', password='$password' WHERE id = $id";
+            if (mysqli_query($conn, $sql)) {
+                echo '<script type="text/JavaScript"> 
+				alert("تم التعديل");
+				</script>';
+			} else {
+				echo '<script type="text/JavaScript"> 
+				alert("حدث خطا");
+				</script>';
+			}
+	 }
 }
 ?>

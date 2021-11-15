@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 نوفمبر 2021 الساعة 10:13
+-- Generation Time: 15 نوفمبر 2021 الساعة 09:55
 -- إصدار الخادم: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -24,6 +24,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- بنية الجدول `cart`
+--
+
+CREATE TABLE `cart` (
+  `order_id` int(10) NOT NULL,
+  `item_id` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `charity`
+--
+
+CREATE TABLE `charity` (
+  `id` int(11) NOT NULL,
+  `charity_name` varchar(200) NOT NULL,
+  `charity_email` varchar(200) NOT NULL,
+  `iban` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `charity_emails`
+--
+
+CREATE TABLE `charity_emails` (
+  `id` int(11) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `charity_id` int(10) NOT NULL,
+  `subject` varchar(200) NOT NULL,
+  `text` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- بنية الجدول `item`
 --
 
@@ -35,6 +74,19 @@ CREATE TABLE `item` (
   `quantity` int(10) NOT NULL,
   `description` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `address_id` varchar(250) NOT NULL,
+  `status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -66,9 +118,27 @@ INSERT INTO `user` (`id`, `name`, `email`, `phone`, `password`, `level`, `vkey`,
 --
 
 --
+-- Indexes for table `charity`
+--
+ALTER TABLE `charity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `charity_emails`
+--
+ALTER TABLE `charity_emails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -82,9 +152,27 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `charity`
+--
+ALTER TABLE `charity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `charity_emails`
+--
+ALTER TABLE `charity_emails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
