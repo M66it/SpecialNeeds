@@ -1,4 +1,12 @@
-<?php require_once('Logic.php'); ?>
+<?php require_once('Logic.php'); 
+    //pull
+	
+    $sql = "SELECT * FROM user WHERE id=$id";
+	
+    $result = mysqli_query($conn, $sql);
+
+    $user = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -31,37 +39,40 @@
 
 <center>
                 <div class="container22">
-				<form action="#" >
+				<form action="" method="post">
 					<div class="user-details11">
 					<div class="input-box">
                       <span class="details">قم بتعديل البيانات التي تريد تغييرها</span>
 					</div>
 					<br>
+					
+					
 					<div class="user-details11">
 					<div class="input-box">
                       <span class="details">أسم المستخدم</span>
-					  <input type="text" placeholder=" " required>
+					  <input type="text" name="name" value="<?php echo $user['name']; ?>">
 					</div>
 					
 					<div class="input-box">
                       <span class="details">الايميل</span>
-					  <input type="email" placeholder=" " required>
+					  <input type="email" name="email" value="<?php echo $user['email']; ?>">
 					</div>	
 
 					<div class="input-box">
                       <span class="details">رقم الهاتف</span>
-					  <input type="text" placeholder=" " required>
+					  <input type="text" name="phone" value="<?php echo $user['phone']; ?>">
 					</div>	
 
 					<div class="input-box">
                       <span class="details">الرقم السري</span>
-					  <input type="password" placeholder=" " required>
+					  <input type="password" name="password">
 					</div>	
 					</div>
+
 										<div class="inner"><center>
 											<header>
 												<br>
-												<button type="submet" name="">تعديل</button>
+												<button type="submet" name="userchange">تعديل</button>
 												<br><br>
 												</form>
 
